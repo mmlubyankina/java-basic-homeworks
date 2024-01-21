@@ -8,10 +8,10 @@ public class HomeworkLesson1 {
     public static void main(String[] args) {
         greetings();
         checkSign(7, 15, -50);
-        selectColor(9);
+        selectColor(30);
         compareNumbers(-33, 100);
         addOrSubtractAndPrint(5, 89, false);
-        HappyEnd();
+        happyEnd();
     }
 
 
@@ -41,7 +41,7 @@ public class HomeworkLesson1 {
             System.out.println("Красный");
         } else if (data <= 20) {
             System.out.println("Желтый");
-        } else if (data > 20) {
+        } else  {
             System.out.println("Зеленый");
         }
     }
@@ -72,48 +72,53 @@ public class HomeworkLesson1 {
 
 
     // Задание № 6:
-    public static void HappyEnd() {
+    public static void happyEnd() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nЗадание № 6. Введите число от 1 до 5:");
-        int d = scanner.nextInt();
-        System.out.println("Введено число: " + d);
-        if (d == 1){
-            System.out.println("\nВыполняется Задание №1");
-            greetings();
-        } else if (d == 2){
-            int a = (int)(Math.random() * 100);
-            int b = (int)(Math.random() * 100);
-            int c = (int)(Math.random() * 100);
-            System.out.println("Сгенерированы числа: " + "\na = " + a
-                    + "\nb = " + b
-                    + "\nc = " + c
-                    + "\nВычисляется решение для Задания №2");
-            checkSign(a, b, c);
-        } else if (d == 3){
-            int data = (int)((Math.random() * (40 + 1)) - 20);
-            System.out.println("Сгенерировано число: " + data + "\nВычисляется решение для Задания №3");
-            selectColor(data);
-        } else if (d == 4){
-            int a1 = (int)((Math.random() * (200+1)) - 100);
-            int b1 = (int)((Math.random() * (200+1)) - 100);
-            System.out.println("Сгенерировано числа: " + "\na1 = " + a1
-                    + "\nb1 = " + b1 + "\nВычисляется решение для Задания №4");
-            compareNumbers(a1, b1);
-        } else if (d == 5){
-            int initValue = (int)((Math.random() * (200+1)) - 100);
-            int delta = (int)((Math.random() * (200+1)) - 100);
-            boolean increment = BoolRand();
-            System.out.println("Сгенерированы значения для вычисления: " + "\ninitValue = " + initValue
-                    + "\ndelta = " + delta
-                    + "\nincrement = " + increment
-                    + "\nВычисляется решение для Задания №5");
-            addOrSubtractAndPrint(initValue, delta, increment);
+        int answer;
+        while (true){
+            do {
+                System.out.print("\nЗадание № 6. Введите число от 1 до 5: ");
+                answer = scanner.nextInt();
+            }   while (answer < 1 && answer > 5);
+            System.out.println("Введено число: " + answer);
+            if (answer == 1){
+                System.out.println("\nВыполняется Задание №1");
+                greetings();
+            } else if (answer == 2){
+                int a = (int)(Math.random() * 100);
+                int b = (int)(Math.random() * 100);
+                int c = (int)(Math.random() * 100);
+                System.out.println("Сгенерированы числа: " + "\na = " + a
+                        + "\nb = " + b
+                        + "\nc = " + c
+                        + "\nВычисляется решение для Задания №2");
+                checkSign(a, b, c);
+            } else if (answer == 3){
+                int data = (int)((Math.random() * (40 + 1)) - 20);
+                System.out.println("Сгенерировано число: " + data + "\nВычисляется решение для Задания №3");
+                selectColor(data);
+            } else if (answer == 4){
+                int a1 = (int)((Math.random() * (200+1)) - 100);
+                int b1 = (int)((Math.random() * (200+1)) - 100);
+                System.out.println("Сгенерированы числа: " + "\na1 = " + a1
+                        + "\nb1 = " + b1 + "\nВычисляется решение для Задания №4");
+                compareNumbers(a1, b1);
+            } else if (answer == 5){
+                int initValue = (int)((Math.random() * (200+1)) - 100);
+                int delta = (int)((Math.random() * (200+1)) - 100);
+                boolean increment = Math.random() > 0.5;
+                System.out.println("Сгенерированы значения для вычисления: " + "\ninitValue = " + initValue
+                        + "\ndelta = " + delta
+                        + "\nincrement = " + increment
+                        + "\nВычисляется решение для Задания №5");
+                addOrSubtractAndPrint(initValue, delta, increment);
+            }
+            else {
+                System.out.println("\nВведено недопустимое число: " + answer + ". " + "Работа программы заершена.");
+            }
+
+            break;
         }
         System.out.println("\nВыполнение Задание №6 завершено.");
     }
-
-    public static boolean BoolRand(){
-        return new Random().nextBoolean();
-    }
-
 }

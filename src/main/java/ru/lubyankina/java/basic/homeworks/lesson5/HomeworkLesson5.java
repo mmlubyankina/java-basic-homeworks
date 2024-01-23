@@ -37,7 +37,7 @@ public class HomeworkLesson5 {
     // метод должен заполнить каждую ячейку массива указанным числом.
 
     public static void arrayLink() {
-        fillingArray(4, 4, 3, 5, 5, 6, 7, 8, 5, 6);
+        fillingArray(3, 4, 3, 5, 5, 6, 7, 8, 5, 6);
     }
 
     public static void fillingArray(int number, int... arr) {
